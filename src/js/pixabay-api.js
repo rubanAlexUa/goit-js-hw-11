@@ -1,6 +1,4 @@
 import axios from 'axios';
-import iziToast from 'izitoast';
-import 'izitoast/dist/css/iziToast.min.css';
 
 export function getImage(imgInfo) {
   return axios
@@ -18,12 +16,6 @@ export function getImage(imgInfo) {
       return response.data.hits;
     })
     .catch(error => {
-      iziToast.error({
-        position: 'topRight',
-        message: `Sorry, there are no images matching your search ${imgInfo}. Please try again!`,
-      });
       return [];
     });
 }
-
-getImage('/cat');

@@ -4,7 +4,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 export function make(imagesArr, gallery) {
   const ulGallery = document.querySelector(gallery);
   const photos = imagesArr
-    .map(elem => {
+    .map(image => {
       return `
         <li class="gallery-item">
             <a class='gallery-link' href="${image.largeImageURL}">
@@ -23,7 +23,7 @@ export function make(imagesArr, gallery) {
     })
     .join('');
 
-  ulGallery.insertAdjacentElement('afterbegin', photos);
+  ulGallery.insertAdjacentHTML('afterbegin', photos);
 
   const lightbox = new SimpleLightbox(gallery + ' a', {
     captionsData: 'alt',
