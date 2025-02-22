@@ -6,12 +6,13 @@ import 'izitoast/dist/css/iziToast.min.css';
 const form = document.querySelector('.form-find-img');
 const message = document.querySelector('.message');
 const gallery = document.querySelector('.gallery');
+const input = document.querySelector('.enter-img');
 
 form.addEventListener('submit', e => {
   e.preventDefault();
   message.innerHTML = 'Wait, the image is loaded';
-  console.log(message.textContent);
-  const searchQuery = e.currentTarget.elements.input.value.trim();
+  const searchQuery = input.value.trim();
+  console.log(searchQuery);
   gallery.innerHTML = '';
   getImage(searchQuery)
     .then(images => {
